@@ -1,5 +1,10 @@
 import subprocess
 import sys
+import requests
+import random
+import os
+import signal
+import html
 
 # Function to check and install required libraries
 def install_requirements():
