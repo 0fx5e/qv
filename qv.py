@@ -199,9 +199,15 @@ def main():
             num_questions = 10
 
         questions = fetch_questions(category, difficulty, num_questions)
+        category_name = ["General", "Books", "Film", "Music", "Television", "VideoGames", "BoardGames", "Science", "Computers", "Mathematics",
+                         "Mythology", "Sports", "Geography", "History", "Politics", "Art", "Celebrities", "Animals", "Vehicles", "Comics", 
+                         "Gadgets", "Anime", "Cartoon", "Theatre", "Random"][int(category) - 1]  # Get category name based on selected category number
+
         if questions:
-            category_name = list(CATEGORY_MAP.keys())[list(CATEGORY_MAP.values()).index(CATEGORY_MAP[category])]
             run_quiz(questions, category_name)
+        else:
+            print("\033[1;91m  [x] No questions available. Please try again.\033[0m")
+            input("\n\033[1;93m [-] Press Enter to continue...")
 
 if __name__ == "__main__":
     main()
